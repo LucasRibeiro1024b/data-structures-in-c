@@ -1,0 +1,13 @@
+
+Projeto 6.
+Dado um arquivo de extenção .c, escreva um programa para descobrir se há parênteses, colchetes ou
+chaves desequilibrados. Caso haja, lance uma mensagem de erro indicando a linha que o erro ocorre.
+Uma abordagem para verificar parênteses equilibrados é usar pilha. Cada vez que um parêntese
+aberto for encontrado, coloque-o na pilha, e quando um parêntese de fechamento for encontrado,
+combine-o com o topo da pilha e remova-o. Se a pilha estiver vazia no final, não há desbalanceamento,
+caso contrário, há desbalanceamento
+
+part 1: how to manipulating files OK!
+part 2: how to loop through an array of char and find characters
+part 3: how to manipulate a stack
+part 4: how to save the location of the unclosed character

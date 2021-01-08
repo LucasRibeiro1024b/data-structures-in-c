@@ -1,0 +1,19 @@
+Projeto 6.
+Dado um arquivo de extenção .c, escreva um programa para descobrir se há parênteses, colchetes ou
+chaves desequilibrados. Caso haja, lance uma mensagem de erro indicando a linha que o erro ocorre.
+Uma abordagem para verificar parênteses equilibrados é usar pilha. Cada vez que um parêntese
+aberto for encontrado, coloque-o na pilha, e quando um parêntese de fechamento for encontrado,
+combine-o com o topo da pilha e remova-o. Se a pilha estiver vazia no final, não há desbalanceamento,
+caso contrário, há desbalanceamento
+
+part 1: how to manipulating files OK!
+part 2: how to loop through an array of char and find characters OK!
+part 3: how to manipulate a stack
+  First, I'll send the character to a function and check if it is the character that I want and then I'll check which one is that character and dependent on them do what is proper.
+  the characters are ( ) { } [ ]
+  I must verify if the actual character differ from the previous character, example:
+  ( }, ( ], { ), { ], [ ), [ }
+  if the previous closed character is not what excepted, than we have a problem  
+
+part 4: how to save the location of the unclosed character
+  I already soved it, I create a struct to do that, my stack will save the character and also the line.
