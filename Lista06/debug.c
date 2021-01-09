@@ -2,26 +2,27 @@
 #include <stdlib.h>
 #include "Queue.h"
 
-typedef struct class {
-  int time, id;
-} Class;
-
 void print(void *element){
-  Class *c = (Class*) element;
-  printf("%d %d\n", c->id, c->time);
+  int c = *((int*) element);
+  printf("%d\n", c);
 }
 
-
 int main(){
-  Class c[3] = {{1, 1}, {2, 3}, {3, 5}};
-  Queue *queue = Queue_create(3);
+  Queue *queue = Queue_create(6);
   int i, *a, popped[5] = {0, 1, 2, 3, 4};
 
-  for (i = 0; i < 4; ++i)
-    Queue_push(queue, &c[i]);
+  for (i = 0; i < 5; ++i)
+    Queue_push(queue, &popped[i]);
 
   Queue_print(queue, print);
 
-  Queue_destroy(queue);
+  for (i = 0; i < 5; ++i){
+    a = (int*) Queue_pop(queue);
+    printf("%5d\n", *a);
+  }
+  printf("\n");
+
+  Queue_print(queue, print);
+
   return 0;
 }

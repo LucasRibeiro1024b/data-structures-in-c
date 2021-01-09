@@ -35,7 +35,7 @@ int main() {
         else
             printf("Processo %d concluído\n", p->id);
         
-        //Queue_print(q, print);
+        Queue_print(q, print);
     }
     Queue_destroy(q);
     return 0;

@@ -12,7 +12,7 @@ Queue *Queue_create(int size) {
   Queue *q = (Queue*) malloc(sizeof(Queue));
   if (q != NULL) {
     q->start = 0;
-    q->end = 0;
+    q->end = -1;
     q->qtt = 0;
     q->size = size;
     q->elements = malloc(sizeof(void*) * q->size);
