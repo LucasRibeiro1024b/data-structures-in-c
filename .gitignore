@@ -1,0 +1,8 @@
+# ignore all precompileted files
+*.o
+
+# ignore all windows compilated files
+*.exe
+
+# ignore all linux compilated files
+*.out
