@@ -59,7 +59,7 @@ int Queue_isFull(Queue *queue) {
 
 int Queue_push(Queue *queue, void *element){
   if (queue == NULL)
-    return -1;
+    return 0;
   if (Queue_isFull(queue))
     return 0;
   
@@ -78,25 +78,27 @@ void *Queue_pop(Queue *queue) {
   }
   
   poppedElement = queue->elements[queue->start];
-//  printf("start before pop: %d\n", queue->start);
-
   queue->start = (queue->start+1) % queue->size;
   --queue->qtt;
   
-//  printf("start after pop: %d\n", queue->start);
   return poppedElement;
 }
 
 void Queue_print(Queue *queue, void (*print)(void *)){
-  int i = queue->start;
+  int i = queue->start, j;
 
   if (queue != NULL && print != NULL) {
-    while (i % queue->size != queue->end){
-      print(queue->elements[i]);
-      ++i;
+    if (queue->start == -1 && queue->end == -1)
+      printf("Queue is underflow\n");
+    if (queue->start > queue->end){
+      for (i = queue->start; i < queue->end; i++)
+        print(queue->elements[i]);
+      for (j = 0; j <= queue->end; j++)
+        print(queue->elements[i]);
+    } else {
+      for(i = queue->start; i <= queue->end; i++)
+        print(queue->elements[i]);
     }
-    print(queue->elements[queue->end]);
-
     printf("\n");
   }
 };

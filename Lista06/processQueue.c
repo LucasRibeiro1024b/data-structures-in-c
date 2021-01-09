@@ -29,7 +29,7 @@ int main() {
         p = Queue_pop(q);
         p->time -= TIME;
         
-        //Queue_print(q, print);
+        Queue_print(q, print);
 
         if (p->time > TIME)
             Queue_push(q, p);
