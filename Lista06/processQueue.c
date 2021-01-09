@@ -11,7 +11,6 @@ typedef struct Process {
 
 void print(void* element){
   Process *pro = (Process*) element;
-  printf("Queue print:\n");
   printf("Process[%d] -> %d\n", pro->id, pro->time);
 }
 
@@ -29,14 +28,16 @@ int main() {
     while (!Queue_isEmpty(q)) {
         p = Queue_pop(q);
         p->time -= TIME;
+        
+        //Queue_print(q, print);
 
         if (p->time > TIME)
             Queue_push(q, p);
         else
             printf("Processo %d concluído\n", p->id);
         
-        Queue_print(q, print);
     }
+
     Queue_destroy(q);
     return 0;
 }

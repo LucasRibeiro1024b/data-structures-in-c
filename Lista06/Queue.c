@@ -63,8 +63,8 @@ int Queue_push(Queue *queue, void *element){
   if (Queue_isFull(queue))
     return 0;
   
-  queue->elements[queue->end] = element;
   queue->end = (queue->end+1) % queue->size;
+  queue->elements[queue->end] = element;
   ++queue->qtt;
 
   return 1;
@@ -93,9 +93,9 @@ void Queue_print(Queue *queue, void (*print)(void *)){
   if (queue != NULL && print != NULL) {
     while (i % queue->size != queue->end){
       print(queue->elements[i]);
-      printf("%d %d %d\n", queue->start, queue->size, queue->end);
       ++i;
     }
+    print(queue->elements[queue->end]);
 
     printf("\n");
   }
