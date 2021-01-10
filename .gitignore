@@ -6,3 +6,6 @@
 
 # ignore all linux compilated files
 **.out
+
+#ignore debug file
+debug.c
