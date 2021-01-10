@@ -2,27 +2,29 @@
 #include <stdlib.h>
 #include "Queue.h"
 
-void print(void *element){
-  int c = *((int*) element);
-  printf("%d\n", c);
+void initImage(int I[9][9]){
+  int i, j;
+  for (i = 0; i < 9; ++i)
+    for (j = 0; j < 9; ++j)
+      I[i][j] = 1;
+
+}
+
+void showImage(int I[9][9]){
+  int i, j;
+  for (i = 0; i < 9; ++i){
+    for (j = 0; j < 9; ++j)
+      printf("%3d", I[i][j]);
+    printf("\n");
+  }
 }
 
 int main(){
-  Queue *queue = Queue_create(6);
-  int i, *a, popped[5] = {0, 1, 2, 3, 4};
+  int i[9][9], i, j;
 
-  for (i = 0; i < 5; ++i)
-    Queue_push(queue, &popped[i]);
+  initImage(i);
 
-  Queue_print(queue, print);
-
-  for (i = 0; i < 5; ++i){
-    a = (int*) Queue_pop(queue);
-    printf("%5d\n", *a);
-  }
-  printf("\n");
-
-  Queue_print(queue, print);
+  showImage(i);
 
   return 0;
 }

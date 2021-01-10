@@ -28,13 +28,14 @@ int main() {
     while (!Queue_isEmpty(q)) {
         p = Queue_pop(q);
         p->time -= TIME;
-        
         Queue_print(q, print);
 
         if (p->time > TIME)
             Queue_push(q, p);
         else
             printf("Processo %d concluído\n", p->id);
+            //2 4 1 3
+            //3 1 4 2 is the conclucion order of the process
         
     }
 

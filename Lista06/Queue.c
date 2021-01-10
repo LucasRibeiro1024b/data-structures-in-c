@@ -93,6 +93,7 @@ void Queue_print(Queue *queue, void (*print)(void *)){
     if (queue->start > queue->end){
       for (i = queue->start; i < queue->end; i++)
         print(queue->elements[i]);
+        
       for (j = 0; j <= queue->end; j++)
         print(queue->elements[i]);
     } else {
