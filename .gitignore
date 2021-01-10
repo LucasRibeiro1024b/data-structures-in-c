@@ -8,4 +8,4 @@
 **.out
 
 #ignore debug file
-debug.c
+debug.*
