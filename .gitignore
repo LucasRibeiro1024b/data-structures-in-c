@@ -9,3 +9,6 @@
 
 #ignore debug file
 debug.*
+
+#ignore json
+**.json
