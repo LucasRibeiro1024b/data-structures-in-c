@@ -7,7 +7,6 @@ void initImage(int I[9][9]){
   for (i = 0; i < 9; ++i)
     for (j = 0; j < 9; ++j)
       I[i][j] = 1;
-
 }
 
 void showImage(int I[9][9]){
@@ -20,11 +19,11 @@ void showImage(int I[9][9]){
 }
 
 int main(){
-  int i[9][9], i, j;
+  int image[9][9], i, j;
 
-  initImage(i);
+  initImage(image);
 
-  showImage(i);
+  showImage(image);
 
   return 0;
 }

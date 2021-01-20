@@ -9,7 +9,7 @@ void intImage(int I[9][9], char *s){
   if ((fpointer = fopen(s, "r")) != NULL){
     for (i = 0; i < 9; ++i)
       for (j = 0; j < 9; ++j)
-        fscanf(fpointer, "%d", a[i][j]);
+        fscanf(fpointer, "%d", &a[i][j]);
 
     for (i = 0; i < 9; ++i)
       for (j = 0; j < 9; ++j)
@@ -21,11 +21,8 @@ void intImage(int I[9][9], char *s){
 
 int main() {
   int p[9][9], i, j;
-  char *str = malloc(sizeof(char));
 
-  scanf("%s", str);
-
-  intImage(p, str);
+  intImage(p, "image.txt");
 
   for(i = 0; i < 9; ++i){
     for(j = 0; j < 9; ++j)
