@@ -11,4 +11,5 @@ void Tree_setValue(Tree *tree, void *value);
 void Tree_setLeft(Tree *tree, void *value);
 void Tree_setRight(Tree *tree, void *value);
 
+int Tree_height(Tree *tree);
 void Tree_print (Tree *tree, void (*print)(void*));

@@ -5,7 +5,7 @@
 struct StackFloat {
   int top;
   int size;
-  float *elements;
+  float **elements;
 };
 
 StackFloat *StackFloat_create(int size)
@@ -17,7 +17,7 @@ StackFloat *StackFloat_create(int size)
   if (stackFloat != NULL) {
     stackFloat->top = -1;
     stackFloat->size = size;
-    stackFloat->elements = (float*) malloc(sizeof(float) * stackFloat->size);
+    stackFloat->elements = malloc(sizeof(float*) * stackFloat->size);
 
     for (i = 0; i < size; ++i) {
       stackFloat->elements[i] = 0;
@@ -57,7 +57,7 @@ void StackFloat_push(StackFloat *stack, float element){
 };
 
 float StackFloat_pop(StackFloat *stack){
-  float topElement;  
+  float topElement;
   if (stack != NULL && !StackFloat_isEmpty(stack)){
     topElement = stack->elements[++stack->top];
     --stack->top;

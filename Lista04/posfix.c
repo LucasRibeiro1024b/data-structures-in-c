@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
-#include "StackFloat.h";
+#include "StackFloat.h"
 #define SIZE 256
 
 char *posfix(char *);
@@ -19,10 +19,10 @@ int main() {
 
 int priority(char c) {
     switch (c) {
-        case '(': return 0;    
-        case '+': 
-        case '-': return 1; 
-        case '*': 
+        case '(': return 0;
+        case '+':
+        case '-': return 1;
+        case '*':
         case '/': return 2;
     }
     return -1;
@@ -30,23 +30,24 @@ int priority(char c) {
 
 char *posfix(char *in) {
     StackFloat *stk = StackFloat_create(SIZE);
-    char *out = (char *) malloc(SIZE * sizeof(char));
-    int i = 0, j = 0;
+    char     *out = (char *) malloc(SIZE * sizeof(char));
+    int         i = 0,
+                j = 0;
 
     for (i = 0; in[i]; i++) {
         if ( in[i] == '(' ) {
-            StackFloat_push(stk, (float) in[i]);
+            StackFloat_push(stk, in[i]);
         }
-        else if ( isdigit(in[i]) ) { 
+        else if ( isdigit(in[i]) ) {
             out[j++] = in[i];
         }
         else if ( strchr("+*-/", in[i]) ) {
             out[j++] = ' ';
-            while ( !StackFloat_isEmpty(stk) 
+            while ( !StackFloat_isEmpty(stk)
                         && priority(in[i]) <= priority(StackFloat_top(stk)) ) {
                 out[j++] = StackFloat_pop(stk);
             }
-            StackFloat_push(stk, (float) in[i]);
+            StackFloat_push(stk, in[i]);
         }
         else if ( in[i] == ')' ) {
             while ( StackFloat_top(stk) != '(' )
@@ -67,7 +68,7 @@ int evaluate(char *expression) {
     StackFloat *stack = StackFloat_create(SIZE);
     int i, j, x, y, z;
     char *subExp = (char*) malloc(strlen(expression));
-    
+
     for (i = 0; expression[i]; i++) {
         if ( isdigit(expression[i]) ) {
             for (j = 0; isdigit(expression[i]); j++, i++) {

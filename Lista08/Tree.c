@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "Tree.h"
 
+#define MAX(a,b) (((a)>(b))?(a):(b))
+
 struct Tree {
   void *value;
   Tree *left;
@@ -69,11 +71,18 @@ void Tree_setRight(Tree *tree, void *value) {
     tree->right = Tree_create(value, NULL, NULL);
 }
 
+int Tree_height(Tree *tree) {
+  if (tree == NULL)
+    return 0;
+
+  return MAX(Tree_height(tree->left), Tree_height(tree->right)) + 1;
+}
+
 void Tree_print(Tree *tree, void (*print)(void*)) {
   if (tree) {
     if(tree->value) {
       printf("<");
-      printf(tree->value);
+      print(tree->value);
       Tree_print(tree->left, print);
       Tree_print(tree->right, print);
       printf(">");

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "Tree.h"
+#include "avl.h"
 
 void print(void *value) {
   char c = *((char*) value);
@@ -8,6 +8,7 @@ void print(void *value) {
 }
 
 int main() {
+  int height;
   char letters[] = "abcdef", c;
 
   Tree *t = NULL;
@@ -25,6 +26,8 @@ int main() {
   printf("\n");
   c = *((char*) Tree_getValue(t));
   printf("%c\n", c);
+  height = Tree_height(t);
+  printf("%d\n", height);
 
   return 0;
 }

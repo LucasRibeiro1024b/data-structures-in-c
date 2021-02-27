@@ -1,0 +1,19 @@
+Projeto 1.
+  Implemente um programa que leia um arquivo com extensão .csv com duas colunas, uma para idades e outra para nomes.
+  Crie uma fila de prioridades com base nas idades usando um maxheap e grave
+novamente os dados em ordem no arquivo.
+          Exemplo de arquivo
+            34 Ana
+            40 Beatriz
+            73 Cecilia
+            22 Diego
+
+1st step (checked):
+  Read a file
+2st step:
+  Create a priotity Queue (maxheap) with datas from the file read before
+  What is a priority queue? and how can I make one?
+    1- 
+    2-
+3st step:
+  Save in file the datas from priority queue

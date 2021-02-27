@@ -1,0 +1,9 @@
+Projeto 1.
+Crie uma implementação de grafo que use uma matriz de adjacências para representar as conexões
+entre seus vértices como a matriz abaixo. Crie ainda um programa que demonstre a inserção e remoção
+de vértices e arestas no grafo.
+
+1st step:
+  -How to make a dynamic matrix? -completed!
+2st step:
+  -__construct function
